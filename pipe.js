@@ -42,7 +42,7 @@ function Pipe(x, y, asteroid) {
     }
     var _color = color(255, 255, 255, 0);
     fill(_color);
-    circle(this.x, this.y, 100);
+    circle(this.x, this.y, 95);
     image(asteroid, this.x - 50, this.y - 50);
   };
   this.update = function (speed) {
