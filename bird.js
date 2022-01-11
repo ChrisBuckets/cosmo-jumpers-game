@@ -24,8 +24,8 @@ function Bird(astronaut) {
     this.velocity *= 0.9;
 
     this.y += this.velocity;
-    if (bird.y < -80) {
-      bird.y = -80;
+    if (bird.y < -60) {
+      bird.y = -60;
     }
   };
 
