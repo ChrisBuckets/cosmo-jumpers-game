@@ -55,7 +55,7 @@ function draw() {
       }
 
       if (pipes[i].hits(bird)) {
-        playing = false;
+        playing = true;
       }
     }
   }
