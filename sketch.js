@@ -2,11 +2,14 @@ var bird;
 var pipes = [];
 var playing = true;
 let bg;
+let astronaut;
+let asteroid;
 
 function setup() {
   collideDebug(true);
   bg = loadImage("https://i.ibb.co/XyJtmbN/spacebackground.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
+  asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
   createCanvas(600, 800);
 
   frameRate(70);
@@ -77,6 +80,7 @@ function draw() {
   }
 
   if (playing) {
+    fill(255);
     strokeWeight(5);
     stroke(0);
     text(bird.score, width / 2, height / 5);
@@ -101,7 +105,7 @@ function spawnPipe(x) {
   for (let i = 0; i < 8; i++) {
     if (i >= hole && i <= hole + amount) continue;
 
-    pipes.push(new Pipe(x, i * 100 + 50));
+    pipes.push(new Pipe(x, i * 100 + 50, asteroid));
   }
 }
 function mousePressed() {

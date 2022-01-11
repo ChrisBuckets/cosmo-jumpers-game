@@ -1,4 +1,4 @@
-function Pipe(x, y) {
+function Pipe(x, y, asteroid) {
   this.x = x;
   this.y = y;
   this.w = 20;
@@ -40,7 +40,10 @@ function Pipe(x, y) {
     if (this.highlight) {
       fill(255, 0, 0);
     }
+    var _color = color(255, 255, 255, 0);
+    fill(_color);
     circle(this.x, this.y, 100);
+    image(asteroid, this.x - 50, this.y - 50);
   };
   this.update = function (speed) {
     //console.log(this.one);
