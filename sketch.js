@@ -101,7 +101,7 @@ function spawnPipe(x) {
   for (let i = 0; i < 8; i++) {
     if (i >= hole && i <= hole + amount) continue;
 
-    pipes.push(new Pipe(x, i * 100 + 50 + i * 5));
+    pipes.push(new Pipe(x, i * 100 + 50));
   }
 }
 function mousePressed() {
