@@ -41,7 +41,7 @@ function draw() {
   let scored = { x: 0, check: false };
   for (let i = pipes.length - 1; i >= 0; i--) {
     pipes[i].show();
-    pipes[i].update(5);
+    pipes[i].update(4.5);
 
     if (pipes[i].offscreen()) {
       pipes.splice(i, 1);

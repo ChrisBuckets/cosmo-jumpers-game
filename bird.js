@@ -2,7 +2,7 @@ function Bird(astronaut) {
   this.y = height / 3;
   this.x = width / 3;
 
-  this.gravity = 1;
+  this.gravity = 0.9;
   this.lift = -25;
   this.velocity = 0;
   this.score = 0;
