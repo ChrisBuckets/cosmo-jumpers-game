@@ -6,14 +6,12 @@ let astronaut;
 let asteroid;
 let jumpSound;
 let scoreSound;
-let font;
 
 function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
 
-  font = loadFont("./Brave Hearted.ttf");
   jumpSound = loadSound("./videogamejumpsound2.mp3");
   scoreSound = loadSound("./score.mp3");
 }
@@ -87,7 +85,7 @@ function draw() {
     fill(255);
     rect(width * 0.06, height * 0.28, width - 80, 80);
     fill(0);
-    textFont(font);
+
     text("Score: " + bird.score, width / 2, height * 0.33);
 
     fill(255);
