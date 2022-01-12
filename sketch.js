@@ -34,6 +34,7 @@ function setup() {
 }
 
 function draw() {
+  console.log(frameRate());
   if (screen == "menu") {
     background(menu);
     //rect(width * 0.17, height * 0.427, 400, 90);
