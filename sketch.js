@@ -1,6 +1,6 @@
 var bird;
 var pipes = [];
-var playing = true;
+var screen = "menu";
 let bg;
 let astronaut;
 let asteroid;
@@ -12,6 +12,9 @@ function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
+
+  menu = loadImage("https://i.ibb.co/CbfbzY0/menu.png");
+
   font = loadFont("./Brave Hearted.ttf");
   jumpSound = loadSound("./videogamejumpsound2.mp3");
   scoreSound = loadSound("./score.mp3");
@@ -26,73 +29,88 @@ function setup() {
   textAlign(CENTER, CENTER);
   textStyle(BOLD);
   textSize(50);
-  spawnPipe(width + 100);
-  spawnPipe(width + 650);
+  spawnPipe(width + 500);
+  spawnPipe(width + 1050);
 }
 
 function draw() {
-  strokeWeight(0);
-  background(bg);
-  bird.show();
-  bird.update();
-
-  if (pipes.length <= 8) {
-    spawnPipe(pipes[0].x + 550);
+  if (screen == "menu") {
+    background(menu);
+    //rect(width * 0.17, height * 0.427, 400, 90);
+    //rect(width * 0.17, height * 0.6, 400, 90);
+    //rect(width * 0.17, height * 0.77, 400, 90);
   }
+  if (screen == "playing" || screen == "lost") {
+    strokeWeight(0);
+    background(bg);
+    bird.show();
+    bird.update();
 
-  for (let i = pipes.length - 1; i >= 0; i--) {
-    pipes[i].show();
-    pipes[i].update(4.5);
-
-    if (pipes[i].offscreen()) {
-      pipes.splice(i, 1);
+    if (pipes.length <= 8) {
+      spawnPipe(pipes[0].x + 550);
     }
 
-    if (playing) {
-      if (i % 6 == 0) {
-        if (pipes[i].scored(bird)) {
-          scoreSound.setVolume(0.2);
-          if (scoreSound.isPlaying()) jumpSound.stop();
-          scoreSound.play();
-          userStartAudio();
-          console.log("scored");
+    for (let i = pipes.length - 1; i >= 0; i--) {
+      pipes[i].show();
+      pipes[i].update(4.5);
+
+      if (pipes[i].offscreen()) {
+        pipes.splice(i, 1);
+      }
+
+      if (screen == "playing") {
+        if (i % 6 == 0) {
+          if (pipes[i].scored(bird)) {
+            scoreSound.setVolume(0.2);
+            if (scoreSound.isPlaying()) jumpSound.stop();
+            scoreSound.play();
+            userStartAudio();
+            console.log("scored");
+          }
+        }
+
+        if (pipes[i].hits(bird)) {
+          let highScore = getItem("highScore");
+          if (!highScore) storeItem("highScore", bird.score);
+          if (bird.score > highScore) storeItem("highScore", bird.score);
+          screen = "lost";
+          console.log(screen);
         }
       }
-
-      if (pipes[i].hits(bird)) {
-        let highScore = getItem("highScore");
-        if (!highScore) storeItem("highScore", bird.score);
-        if (bird.score > highScore) storeItem("highScore", bird.score);
-        playing = false;
-      }
     }
   }
 
-  if (!playing) {
+  if (screen == "lost") {
     let highScore = getItem("highScore");
+
+    stroke("#00A2E8");
     strokeWeight(3);
 
-    fill(255);
+    fill(0);
     rect(width * 0.06, height * 0.28, width - 80, 80);
-    fill(0);
-    textFont(font);
+    fill(255);
+    //textFont(font);
+    noStroke();
     text("Score: " + bird.score, width / 2, height * 0.33);
-
-    fill(255);
-
+    stroke("#00A2E8");
+    strokeWeight(3);
+    fill(0);
     rect(width * 0.06, height * 0.45, width - 80, 80);
-    fill(0);
-    text("Best: " + highScore, width / 2, height * 0.5);
-
     fill(255);
-
-    rect(width * 0.06, height * 0.62, width - 80, 80);
+    noStroke();
+    text("Best: " + highScore, width / 2, height * 0.5);
+    stroke("#00A2E8");
+    strokeWeight(3);
     fill(0);
+    rect(width * 0.06, height * 0.62, width - 80, 80);
+    fill(255);
+    noStroke();
     text("Play Again", width / 2, height * 0.67);
+
     bird.fall();
   }
 
-  if (playing) {
+  if (screen == "playing") {
     fill(255);
     strokeWeight(5);
     stroke(0);
@@ -101,7 +119,7 @@ function draw() {
 }
 
 function restartGame() {
-  playing = true;
+  screen = "playing";
   bird.score = 0;
   pipes = [];
   bird = new Bird(astronaut);
@@ -121,7 +139,12 @@ function spawnPipe(x) {
   }
 }
 function mousePressed() {
-  if (playing) {
+  if (screen == "menu") {
+    if (mouseX > width * 0.17 && mouseX < width * 0.17 + 400 && mouseY > height * 0.427 && mouseY < height * 0.427 + 90) {
+      screen = "playing";
+    }
+  }
+  if (screen == "playing") {
     bird.up();
     jumpSound.setVolume(0.05);
     if (jumpSound.isPlaying()) jumpSound.stop();
@@ -129,8 +152,8 @@ function mousePressed() {
     userStartAudio();
   }
 
-  if (!playing) {
-    if (mouseX > width * 0.06 && mouseX < width * 0.06 + (width - 80) && mouseY > height * 0.62 && (mouseY * 0.62) / 2 + 80) {
+  if (screen == "lost") {
+    if (mouseX > width * 0.06 && mouseX < width * 0.06 + (width - 80) && mouseY > height * 0.62 && mouseY < height * 0.62 + 80) {
       restartGame();
     }
   }
