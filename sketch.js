@@ -60,7 +60,7 @@ function draw() {
     if (playing) {
       if (i % 6 == 0) {
         if (pipes[i].scored(bird)) {
-          scoreSound.setVolume(0.05);
+          scoreSound.setVolume(0.2);
           if (scoreSound.isPlaying()) jumpSound.stop();
           scoreSound.play();
           userStartAudio();
