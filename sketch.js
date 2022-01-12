@@ -117,7 +117,7 @@ function mousePressed() {
   if (playing) {
     console.log("yo");
     bird.up();
-    jumpSound.setVolume(0.1, 0.5);
+    jumpSound.setVolume(0.05);
     if (jumpSound.isPlaying()) jumpSound.stop();
     jumpSound.play();
     userStartAudio();
