@@ -4,12 +4,15 @@ var playing = true;
 let bg;
 let astronaut;
 let asteroid;
+let jumpSound;
 
 function setup() {
   collideDebug(true);
   bg = loadImage("https://i.ibb.co/XyJtmbN/spacebackground.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
+  jumpSound = loadSound("./jump.mp3");
+  jumpSound.play();
   createCanvas(600, 800);
 
   frameRate(70);
@@ -112,6 +115,7 @@ function mousePressed() {
   if (playing) {
     console.log("yo");
     bird.up();
+    userStartAudio();
   }
 
   if (!playing) {

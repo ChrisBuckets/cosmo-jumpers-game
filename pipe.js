@@ -2,6 +2,7 @@ function Pipe(x, y, asteroid) {
   this.x = x;
   this.y = y;
   this.w = 20;
+  this.rotateX = 0;
   this.highlight = false;
   this.playerScored;
   this.hits = function (bird) {
@@ -43,6 +44,7 @@ function Pipe(x, y, asteroid) {
     var _color = color(255, 255, 255, 0);
     fill(_color);
     circle(this.x, this.y, 95);
+
     image(asteroid, this.x - 50, this.y - 50);
   };
   this.update = function (speed) {
