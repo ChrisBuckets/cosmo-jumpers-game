@@ -6,11 +6,14 @@ let astronaut;
 let asteroid;
 let jumpSound;
 let scoreSound;
+let font;
 
 function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
+
+  font = loadFont("./Brave Hearted.ttf");
   jumpSound = loadSound("./videogamejumpsound2.mp3");
   scoreSound = loadSound("./score.mp3");
 }
@@ -37,7 +40,7 @@ function draw() {
   if (pipes.length <= 8) {
     spawnPipe(pipes[0].x + 550);
   }
-  /*if (frameCount % 120 == 0) {
+  if (frameCount % 120 == 0) {
     let hole = Math.floor(Math.random() * 8);
     let amount = 1;
     if (hole == 7 && amount == 1) hole = 6;
@@ -47,7 +50,7 @@ function draw() {
     }
 
     console.log("pipe created"); // add score here
-  }*/
+  }
   let scored = { x: 0, check: false };
   for (let i = pipes.length - 1; i >= 0; i--) {
     pipes[i].show();
@@ -84,6 +87,7 @@ function draw() {
     fill(255);
     rect(width * 0.06, height * 0.28, width - 80, 80);
     fill(0);
+    textFont(font);
     text("Score: " + bird.score, width / 2, height * 0.33);
 
     fill(255);
