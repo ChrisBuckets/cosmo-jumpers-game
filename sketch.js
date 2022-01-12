@@ -69,24 +69,34 @@ function draw() {
       }
 
       if (pipes[i].hits(bird)) {
+        let highScore = getItem("highScore");
+        if (!highScore) storeItem("highScore", bird.score);
+        if (bird.score > highScore) storeItem("highScore", bird.score);
         playing = false;
       }
     }
   }
 
   if (!playing) {
+    let highScore = getItem("highScore");
     strokeWeight(3);
 
     fill(255);
     rect(width * 0.06, height * 0.28, width - 80, 80);
     fill(0);
-    text("Score: " + bird.score, width / 2, height / 3);
+    text("Score: " + bird.score, width / 2, height * 0.33);
 
     fill(255);
 
     rect(width * 0.06, height * 0.45, width - 80, 80);
     fill(0);
-    text("Play Again", width / 2, height / 2);
+    text("Best: " + highScore, width / 2, height * 0.5);
+
+    fill(255);
+
+    rect(width * 0.06, height * 0.62, width - 80, 80);
+    fill(0);
+    text("Play Again", width / 2, height * 0.67);
     bird.fall();
   }
 
@@ -128,7 +138,7 @@ function mousePressed() {
   }
 
   if (!playing) {
-    if (mouseX > width * 0.06 && mouseX < width * 0.06 + (width - 80) && mouseY > height * 0.45 && (mouseY * 0.45) / 2 + 80) {
+    if (mouseX > width * 0.06 && mouseX < width * 0.06 + (width - 80) && mouseY > height * 0.62 && (mouseY * 0.62) / 2 + 80) {
       restartGame();
     }
   }
