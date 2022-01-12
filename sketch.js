@@ -15,8 +15,7 @@ function setup() {
 
   /*jumpSound.play();
   userStartAudio();*/
-  mic = new p5.AudioIn();
-  mic.start();
+
   getAudioContext().resume();
   createCanvas(600, 800);
 
