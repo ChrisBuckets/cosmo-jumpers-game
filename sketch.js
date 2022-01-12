@@ -6,7 +6,7 @@ let astronaut;
 let asteroid;
 
 function preload() {
-  bg = loadImage("https://i.ibb.co/hsQBYKM/background.png");
+  bg = loadImage("https://i.ibb.co/Z1WMPWV/tfghc.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
   //jumpSound = loadSound("./jump.mp3");
