@@ -10,7 +10,7 @@ function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
-  jumpSound = loadSound("./jump.mp3");
+  jumpSound = loadSound("./videogamejumpsound.mp3");
 }
 function setup() {
   collideDebug(true);
