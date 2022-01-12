@@ -25,7 +25,7 @@ function setup() {
   textStyle(BOLD);
   textSize(50);
   spawnPipe(width + 100);
-  spawnPipe(width + 700);
+  spawnPipe(width + 650);
 }
 
 function draw() {
@@ -35,7 +35,7 @@ function draw() {
   bird.update();
 
   if (pipes.length <= 8) {
-    spawnPipe(pipes[0].x + 600);
+    spawnPipe(pipes[0].x + 550);
   }
   /*if (frameCount % 120 == 0) {
     let hole = Math.floor(Math.random() * 8);
