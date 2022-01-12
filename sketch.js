@@ -13,9 +13,6 @@ function preload() {
 function setup() {
   collideDebug(true);
 
-  /*jumpSound.play();
-  userStartAudio();*/
-
   getAudioContext().resume();
   createCanvas(600, 800);
 
@@ -119,6 +116,8 @@ function mousePressed() {
   if (playing) {
     console.log("yo");
     bird.up();
+    jumpSound.play();
+    userStartAudio();
   }
 
   if (!playing) {
