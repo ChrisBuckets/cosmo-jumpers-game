@@ -118,6 +118,7 @@ function mousePressed() {
     console.log("yo");
     bird.up();
     jumpSound.setVolume(0.2, 0.5);
+    if (jumpSound.isPlaying()) jumpSound.stop();
     jumpSound.play();
     userStartAudio();
   }
