@@ -60,7 +60,7 @@ function draw() {
     if (playing) {
       if (i % 6 == 0) {
         if (pipes[i].scored(bird)) {
-          jumpSound.play();
+          scoreSound.play();
           userStartAudio();
           console.log("scored");
         }
