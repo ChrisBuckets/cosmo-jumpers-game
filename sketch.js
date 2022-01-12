@@ -13,7 +13,6 @@ function preload() {
 function setup() {
   collideDebug(true);
 
-  getAudioContext().resume();
   createCanvas(600, 800);
 
   frameRate(70);
