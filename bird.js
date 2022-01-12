@@ -23,7 +23,7 @@ function Bird(astronaut) {
 
     this.velocity *= 0.9;
 
-    this.y += this.velocity;
+    this.y += this.velocity * (deltaTime / 15);
     if (bird.y < -60) {
       bird.y = -60;
     }
@@ -32,7 +32,7 @@ function Bird(astronaut) {
   this.fall = function () {
     this.y += 1.45;
     if (this.y > height + 80) {
-      this.y = height + 80;
+      this.y = height + 80 * (deltaTime / 15);
     }
   };
 }
