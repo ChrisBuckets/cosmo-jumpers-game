@@ -25,7 +25,7 @@ function setup() {
   textStyle(BOLD);
   textSize(50);
   spawnPipe(width + 100);
-  spawnPipe(width + 600);
+  spawnPipe(width + 700);
 }
 
 function draw() {
@@ -35,7 +35,7 @@ function draw() {
   bird.update();
 
   if (pipes.length <= 8) {
-    spawnPipe(pipes[0].x + 500);
+    spawnPipe(pipes[0].x + 600);
   }
   /*if (frameCount % 120 == 0) {
     let hole = Math.floor(Math.random() * 8);
@@ -101,7 +101,6 @@ function draw() {
 function restartGame() {
   playing = true;
   bird.score = 0;
-  console.log("yo");
   pipes = [];
   bird = new Bird(astronaut);
   spawnPipe(width + 100);
