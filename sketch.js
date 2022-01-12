@@ -5,12 +5,14 @@ let bg;
 let astronaut;
 let asteroid;
 let jumpSound;
+let scoreSound;
 
 function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
   jumpSound = loadSound("./videogamejumpsound2.mp3");
+  scoreSound = loadSound("./score.mp3");
 }
 function setup() {
   collideDebug(true);
@@ -58,6 +60,8 @@ function draw() {
     if (playing) {
       if (i % 6 == 0) {
         if (pipes[i].scored(bird)) {
+          jumpSound.play();
+          userStartAudio();
           console.log("scored");
         }
       }
@@ -115,7 +119,6 @@ function spawnPipe(x) {
 }
 function mousePressed() {
   if (playing) {
-    console.log("yo");
     bird.up();
     jumpSound.setVolume(0.05);
     if (jumpSound.isPlaying()) jumpSound.stop();
