@@ -48,10 +48,6 @@ function draw() {
     //rect(width * 0.17, height * 0.77, 400, 90);
   }
 
-  if (screen == "menu" || screen == "lost") {
-    if (sound) image(soundImage, width * 0.88, 0);
-    if (!sound) image(muteSoundImage, width * 0.88, 4.5);
-  }
   if (screen == "playing" || screen == "lost") {
     strokeWeight(0);
     background(bg);
@@ -131,6 +127,11 @@ function draw() {
     stroke(0);
     text(bird.score, width / 2, height / 5);
   }
+
+  if (screen == "menu" || screen == "lost") {
+    if (sound) image(soundImage, width * 0.88, 0);
+    if (!sound) image(muteSoundImage, width * 0.88, 4.5);
+  }
 }
 
 function restartGame() {
@@ -180,6 +181,6 @@ function mousePressed() {
       sound = !sound;
       storeItem("sound", sound);
       console.log(getItem("sound"));
-    }
+    
   }
 }
