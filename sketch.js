@@ -7,14 +7,17 @@ let asteroid;
 let jumpSound;
 let scoreSound;
 let font;
+let soundImage;
+let muteSoundImage;
+let sound = true;
 
 function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
-
   menu = loadImage("https://i.ibb.co/CbfbzY0/menu.png");
-
+  soundImage = loadImage("https://i.ibb.co/HBc1YhM/sound.png");
+  muteSoundImage = loadImage("https://i.ibb.co/6JD52rx/mutesound.png");
   font = loadFont("./Brave Hearted.ttf");
   jumpSound = loadSound("./videogamejumpsound2.mp3");
   scoreSound = loadSound("./score.mp3");
@@ -31,6 +34,10 @@ function setup() {
   textSize(50);
   spawnPipe(width + 500);
   spawnPipe(width + 1050);
+
+  let checkSound = getItem("sound");
+  if (checkSound == null) storeItem("sound", true);
+  if (checkSound != null) sound = checkSound;
 }
 let time = new Date().getTime();
 function draw() {
@@ -61,10 +68,13 @@ function draw() {
       if (screen == "playing") {
         if (i % 6 == 0) {
           if (pipes[i].scored(bird)) {
-            scoreSound.setVolume(0.2);
-            if (scoreSound.isPlaying()) jumpSound.stop();
-            scoreSound.play();
-            userStartAudio();
+            if (sound) {
+              scoreSound.setVolume(0.2);
+              if (scoreSound.isPlaying()) jumpSound.stop();
+              scoreSound.play();
+              userStartAudio();
+            }
+
             console.log("scored");
           }
         }
@@ -116,6 +126,9 @@ function draw() {
     stroke(0);
     text(bird.score, width / 2, height / 5);
   }
+
+  if (sound) image(soundImage, width * 0.88, 0);
+  if (!sound) image(muteSoundImage, width * 0.88, 4.5);
 }
 
 function restartGame() {
@@ -146,15 +159,22 @@ function mousePressed() {
   }
   if (screen == "playing") {
     bird.up();
-    jumpSound.setVolume(0.05);
-    if (jumpSound.isPlaying()) jumpSound.stop();
-    jumpSound.play();
-    userStartAudio();
+    if (sound) {
+      jumpSound.setVolume(0.05);
+      if (jumpSound.isPlaying()) jumpSound.stop();
+      jumpSound.play();
+      userStartAudio();
+    }
   }
 
   if (screen == "lost") {
     if (mouseX > width * 0.06 && mouseX < width * 0.06 + (width - 80) && mouseY > height * 0.62 && mouseY < height * 0.62 + 80) {
       restartGame();
     }
+  }
+  if (mouseX > width * 0.88 && mouseX < width * 0.88 + 64 && mouseY > 5 && mouseY < 5 + 64) {
+    sound = !sound;
+    storeItem("sound", sound);
+    console.log(getItem("sound"));
   }
 }
