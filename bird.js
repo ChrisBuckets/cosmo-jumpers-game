@@ -9,7 +9,7 @@ function Bird(astronaut) {
     var _color = color(255, 255, 255, 0);
     fill(_color);
 
-    rect(this.x + 2.5, this.y - 10, 60, 85);
+    rect(this.x + 2.5, this.y - 13, 60, 85);
     circle(this.x + 40, this.y - 14, 43);
     image(astronaut, this.x - 30, this.y - 40);
   };
