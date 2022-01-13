@@ -191,6 +191,6 @@ function action() {
       sound = !sound;
       storeItem("sound", sound);
       console.log(getItem("sound"));
-    
+    }
   }
 }
