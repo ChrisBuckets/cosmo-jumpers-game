@@ -174,9 +174,12 @@ function mousePressed() {
       restartGame();
     }
   }
-  if (mouseX > width * 0.88 && mouseX < width * 0.88 + 64 && mouseY > 5 && mouseY < 5 + 64) {
-    sound = !sound;
-    storeItem("sound", sound);
-    console.log(getItem("sound"));
+
+  if (screen == "menu" || screen == "lost") {
+    if (mouseX > width * 0.88 && mouseX < width * 0.88 + 64 && mouseY > 5 && mouseY < 5 + 64) {
+      sound = !sound;
+      storeItem("sound", sound);
+      console.log(getItem("sound"));
+    }
   }
 }
