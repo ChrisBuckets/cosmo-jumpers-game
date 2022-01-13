@@ -32,7 +32,7 @@ function setup() {
   spawnPipe(width + 500);
   spawnPipe(width + 1050);
 }
-
+let time = new Date().getTime();
 function draw() {
   if (screen == "menu") {
     background(menu);
@@ -52,7 +52,7 @@ function draw() {
 
     for (let i = pipes.length - 1; i >= 0; i--) {
       pipes[i].show();
-      pipes[i].update(4.5);
+      pipes[i].update(0.3);
 
       if (pipes[i].offscreen()) {
         pipes.splice(i, 1);

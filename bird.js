@@ -1,7 +1,6 @@
 function Bird(astronaut) {
   this.y = height / 3;
   this.x = width / 3;
-
   this.gravity = 0.85;
   this.lift = -25;
   this.velocity = 0;
@@ -16,21 +15,23 @@ function Bird(astronaut) {
   };
 
   this.up = function () {
-    this.velocity += this.lift * (deltaTime / 15);
+    this.velocity += this.lift;
   };
   this.update = function () {
     this.velocity += this.gravity;
-
     this.velocity *= 0.9;
+    this.y += this.velocity;
 
-    this.y += this.velocity * (deltaTime / 15);
+    if (bird.y < 300) {
+      console.log(bird.y);
+    }
     if (bird.y < -60) {
       bird.y = -60;
     }
   };
 
   this.fall = function () {
-    this.y += 1.45 * (deltaTime / 15);
+    this.y += 0.5 * deltaTime;
     if (this.y > height + 80) {
       this.y = height + 80;
     }

@@ -51,7 +51,7 @@ function Pipe(x, y, asteroid) {
     //console.log(this.one);
     //console.log(this.firstX);
     //console.log(this.three);
-    this.x -= speed * (deltaTime / 15);
+    this.x -= speed * deltaTime;
   };
 
   this.offscreen = function () {
