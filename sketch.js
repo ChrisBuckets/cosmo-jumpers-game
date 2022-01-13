@@ -154,7 +154,17 @@ function spawnPipe(x) {
     pipes.push(new Pipe(x, i * 100 + 50, asteroid));
   }
 }
+
+function keyPressed() {
+  if (keyCode == "32") {
+    action();
+  }
+}
 function mousePressed() {
+  action();
+}
+
+function action() {
   if (screen == "menu") {
     if (mouseX > width * 0.17 && mouseX < width * 0.17 + 400 && mouseY > height * 0.427 && mouseY < height * 0.427 + 90) {
       screen = "playing";
