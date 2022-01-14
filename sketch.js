@@ -62,7 +62,7 @@ function preload() {
     jetpack: loadImage(`./astronauts/jetpack/${astronaut["jetpack"][Math.floor(Math.random() * astronaut["jetpack"].length)]}.png`),
     helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
     trail: loadImage(`./astronauts/trail/${astronaut["trail"][Math.floor(Math.random() * astronaut["trail"].length)]}.png`),
-    gloves: loadIMage(`./astronauts/gloves/${astronaut["gloves"][Math.floor(Math.random() * astronaut["gloves"].length)]}.png`),
+    gloves: loadImage(`./astronauts/gloves/${astronaut["gloves"][Math.floor(Math.random() * astronaut["gloves"].length)]}.png`),
     visor: loadImage(`./astronauts/visor/${astronaut["visor"][Math.floor(Math.random() * astronaut["visor"].length)]}.png`),
   };
 
