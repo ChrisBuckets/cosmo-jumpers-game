@@ -188,7 +188,7 @@ function restartGame() {
   screen = "playing";
   bird.score = 0;
   pipes = [];
-  bird = new Bird(astronaut);
+  bird = new Bird(buildAstronaut);
   spawnPipe(width + 100);
   spawnPipe(width + 600);
 }
