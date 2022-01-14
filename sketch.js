@@ -25,6 +25,13 @@ let astronaut = {
     "Helmet Soldier Void",
     "Helmet Soldier Royal",
     "Helmet Soldier Rose",
+    "Visor Black",
+    "Visor Blue",
+    "Visor Evil",
+    "Visor Gas Mask",
+    "Visor Reflect",
+    "Visor Television",
+    "Visor Sun",
   ],
   suit: ["Suit Biohazard", "Suit Forest", "Suit Rose", "Suit Royal", "Suit Void", "Suit White"],
   shoes: ["Boots Black", "Boots Leather", "Boots Sneakers"],
@@ -41,7 +48,6 @@ let astronaut = {
   ],
   trail: ["Trail Flame Blue", "Trail Flame Red", "Trail Love", "Trail Rainbow", "Trail Smoke"],
   gloves: ["Gloves Boxing Blue", "Gloves Boxing Red", "Gloves Experiment", "Gloves Leather", "Gloves Fingerless"],
-  visor: ["Visor Black", "Visor Blue", "Visor Evil", "Visor Gas Mask", "Visor Reflect", "Visor Television", "Visor Sun"],
 };
 
 function preload() {
@@ -57,13 +63,14 @@ function preload() {
 
   buildAstronaut = {
     template: loadImage(`./astronauts/template/${astronaut["template"][0]}.png`),
+    helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
     suit: loadImage(`./astronauts/suit/${astronaut["suit"][Math.floor(Math.random() * astronaut["suit"].length)]}.png`),
     shoes: loadImage(`./astronauts/shoes/${astronaut["shoes"][Math.floor(Math.random() * astronaut["shoes"].length)]}.png`),
     jetpack: loadImage(`./astronauts/jetpack/${astronaut["jetpack"][Math.floor(Math.random() * astronaut["jetpack"].length)]}.png`),
+
     helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
     trail: loadImage(`./astronauts/trail/${astronaut["trail"][Math.floor(Math.random() * astronaut["trail"].length)]}.png`),
     gloves: loadImage(`./astronauts/gloves/${astronaut["gloves"][Math.floor(Math.random() * astronaut["gloves"].length)]}.png`),
-    visor: loadImage(`./astronauts/visor/${astronaut["visor"][Math.floor(Math.random() * astronaut["visor"].length)]}.png`),
   };
 
   console.log(`./astronauts/template/${astronaut["template"][0]}.png`);
