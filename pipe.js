@@ -6,8 +6,8 @@ function Pipe(x, y, asteroid) {
   this.highlight = false;
   this.playerScored;
   this.hits = function (bird) {
-    let hit = collideRectCircle(bird.x + 2.5, bird.y - 10, 60, 85, this.x, this.y, 100);
-    let hit2 = collideCircleCircle(bird.x + 40, bird.y - 14, 43, this.x, this.y, 100);
+    let hit = collideRectCircle(bird.x + 2.5, bird.y - 10, 60, 85, this.x, this.y, 95);
+    let hit2 = collideCircleCircle(bird.x + 40, bird.y - 14, 43, this.x, this.y, 95);
 
     if (hit) {
       this.highlight = true;

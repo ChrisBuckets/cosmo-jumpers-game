@@ -2,7 +2,6 @@ var bird;
 var pipes = [];
 var screen = "menu";
 let bg;
-let astronaut;
 let asteroid;
 let jumpSound;
 let scoreSound;
@@ -10,10 +9,44 @@ let font;
 let soundImage;
 let muteSoundImage;
 let sound = true;
+let buildAstronaut;
+let astronaut = {
+  template: ["Template"],
+  suit: ["Suit Biohazard", "Suit Forest", "Suit Rose", "Suit Royal", "Suit Void", "Suit White"],
+  shoes: ["Boots Black", "Boots Leather", "Boots Sneakers"],
+  jetpack: [
+    "Jetpack Biohazard",
+    "Jetpack Default Forest",
+    "Jetpack Default Rose",
+    "Jetpack Default Royal",
+    "Jetpack Default Void",
+    "Jetpack Default White",
+    "Jetpack Thrusters",
+    "Jetpack Rocket",
+    "Jetpack Hunter",
+  ],
+  helmet: [
+    "Helmet Dive",
+    "Helmet Racing Forest",
+    "Helmet Racing Rose",
+    "Helmet Racing Royal",
+    "Helmet Racing Void",
+    "Helmet Racing White",
+    "Helmet Riot",
+    "Helmet Soldier Forest",
+    "Helmet Soldier White",
+    "Helmet Soldier Void",
+    "Helmet Soldier Royal",
+    "Helmet Soldier Rose",
+  ],
+  trail: ["Trail Flame Blue", "Trail Flame Red", "Trail Love", "Trail Rainbow", "Trail Smoke"],
+  gloves: ["Gloves Boxing Blue", "Gloves Boxing Red", "Gloves Experiment", "Gloves Leather", "Gloves Fingerless"],
+  visor: ["Visor Black", "Visor Blue", "Visor Evil", "Visor Gas Mask", "Visor Reflect", "Visor Television", "Visor Sun"],
+};
 
 function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
-  astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
+  //astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
   menu = loadImage("https://i.ibb.co/CbfbzY0/menu.png");
   soundImage = loadImage("https://i.ibb.co/HBc1YhM/sound.png");
@@ -21,6 +54,20 @@ function preload() {
   font = loadFont("./Brave Hearted.ttf");
   jumpSound = loadSound("./videogamejumpsound2.mp3");
   scoreSound = loadSound("./score.mp3");
+
+  buildAstronaut = {
+    template: loadImage(`./astronauts/template/${astronaut["template"][0]}.png`),
+    suit: loadImage(`./astronauts/suit/${astronaut["suit"][Math.floor(Math.random() * astronaut["suit"].length)]}.png`),
+    shoes: loadImage(`./astronauts/shoes/${astronaut["shoes"][Math.floor(Math.random() * astronaut["shoes"].length)]}.png`),
+    jetpack: loadImage(`./astronauts/jetpack/${astronaut["jetpack"][Math.floor(Math.random() * astronaut["jetpack"].length)]}.png`),
+    helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
+    trail: loadImage(`./astronauts/trail/${astronaut["trail"][Math.floor(Math.random() * astronaut["trail"].length)]}.png`),
+    gloves: loadIMage(`./astronauts/gloves/${astronaut["gloves"][Math.floor(Math.random() * astronaut["gloves"].length)]}.png`),
+    visor: loadImage(`./astronauts/visor/${astronaut["visor"][Math.floor(Math.random() * astronaut["visor"].length)]}.png`),
+  };
+
+  console.log(buildAstronaut);
+  console.log(Object.keys(buildAstronaut).length);
 }
 function setup() {
   collideDebug(true);
@@ -28,7 +75,7 @@ function setup() {
   createCanvas(600, 800);
 
   frameRate(70);
-  bird = new Bird(astronaut);
+  bird = new Bird(buildAstronaut);
   textAlign(CENTER, CENTER);
   textStyle(BOLD);
   textSize(50);
