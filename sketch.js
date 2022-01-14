@@ -66,6 +66,9 @@ function preload() {
     visor: loadImage(`./astronauts/visor/${astronaut["visor"][Math.floor(Math.random() * astronaut["visor"].length)]}.png`),
   };
 
+  console.log(`./astronauts/template/${astronaut["template"][0]}.png`);
+  console.log(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`);
+
   console.log(buildAstronaut);
   console.log(Object.keys(buildAstronaut).length);
 }
