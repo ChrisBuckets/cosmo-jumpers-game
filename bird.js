@@ -13,7 +13,7 @@ function Bird(astronaut) {
     circle(this.x + 40, this.y - 14, 43);
     //image(astronaut, this.x - 30, this.y - 40);
     for (key in astronaut) {
-      image(key, this.x - 30, this.y - 40);
+      image(astronaut[key], this.x - 30, this.y - 40);
     }
   };
 
