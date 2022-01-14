@@ -62,7 +62,6 @@ function preload() {
   scoreSound = loadSound("./score.mp3");
 
   buildAstronaut = {
-    template: loadImage(`./astronauts/template/${astronaut["template"][0]}.png`),
     suit: loadImage(`./astronauts/suit/${astronaut["suit"][Math.floor(Math.random() * astronaut["suit"].length)]}.png`),
     helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
     shoes: loadImage(`./astronauts/shoes/${astronaut["shoes"][Math.floor(Math.random() * astronaut["shoes"].length)]}.png`),
