@@ -54,7 +54,7 @@ function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   //astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
-  menu = loadImage("https://i.ibb.co/CbfbzY0/menu.png");
+  menu = createImg("./menu.gif");
   soundImage = loadImage("https://i.ibb.co/HBc1YhM/sound.png");
   muteSoundImage = loadImage("https://i.ibb.co/6JD52rx/mutesound.png");
   font = loadFont("./Brave Hearted.ttf");
@@ -97,7 +97,7 @@ function setup() {
 let time = new Date().getTime();
 function draw() {
   if (screen == "menu") {
-    background(menu);
+    menu.position(0, 0);
     //rect(width * 0.17, height * 0.427, 400, 90);
     //rect(width * 0.17, height * 0.6, 400, 90);
     //rect(width * 0.17, height * 0.77, 400, 90);
