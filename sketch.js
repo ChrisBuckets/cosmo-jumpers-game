@@ -54,7 +54,7 @@ function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   //astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
   asteroid = loadImage("https://i.ibb.co/BP9RVnx/asteroid.png");
-  menu = createImg("./menu.gif");
+  menu = loadGif("./menu.gif");
   soundImage = loadImage("https://i.ibb.co/HBc1YhM/sound.png");
   muteSoundImage = loadImage("https://i.ibb.co/6JD52rx/mutesound.png");
   font = loadFont("./Brave Hearted.ttf");
@@ -106,7 +106,6 @@ function draw() {
   }
 
   if (screen != "menu") {
-    menu.hide();
   }
 
   if (screen == "playing" || screen == "lost") {
