@@ -226,6 +226,7 @@ function mousePressed() {
 
 function action() {
   if (screen == "menu") {
+    console.log("breh");
     if (mouseX > width * 0.17 && mouseX < width * 0.17 + 400 && mouseY > height * 0.427 && mouseY < height * 0.427 + 90) {
       screen = "playing";
     }
