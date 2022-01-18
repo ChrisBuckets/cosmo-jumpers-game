@@ -97,10 +97,15 @@ function setup() {
 let time = new Date().getTime();
 function draw() {
   if (screen == "menu") {
-    menu.position(0, 0);
+    menu.show();
+    //menu.position(0, 0);
     //rect(width * 0.17, height * 0.427, 400, 90);
     //rect(width * 0.17, height * 0.6, 400, 90);
     //rect(width * 0.17, height * 0.77, 400, 90);
+  }
+
+  if (screen != "menu") {
+    menu.hide();
   }
 
   if (screen == "playing" || screen == "lost") {
