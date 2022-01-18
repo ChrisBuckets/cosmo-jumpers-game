@@ -99,7 +99,7 @@ function draw() {
   if (screen == "menu") {
     menu.show();
     //menu.position(0, 0);
-    //rect(width * 0.17, height * 0.427, 400, 90);
+    rect(width * 0.17, height * 0.427, 400, 90);
     //rect(width * 0.17, height * 0.6, 400, 90);
     //rect(width * 0.17, height * 0.77, 400, 90);
   }
