@@ -51,7 +51,7 @@ let astronaut = {
     "Jetpack Bag",
   ],
   trail: ["Trail Flame Blue", "Trail Flame Red", "Trail Love", "Trail Rainbow", "Trail Smoke", "Trail Cash", "Trail Stars"],
-  gloves: ["Gloves Boxing Blue", "Gloves Boxing Red", "Gloves Experiment", "Gloves Leather", "Gloves Fingerless"],
+  gloves: ["Gloves Boxing Blue", "Gloves Boxing Red", "Gloves Experiment", "Gloves Leather", "Gloves Fingerless", "Gloves Camo"],
 };
 
 function preload() {
