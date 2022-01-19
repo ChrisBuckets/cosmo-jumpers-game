@@ -16,8 +16,8 @@ function Bird(astronaut) {
       if (screen == "lost") {
         push();
         translate(this.x - 30, this.y - 40);
-
         rotate(PI / 2);
+        console.log("rotating");
         pop();
       }
       image(astronaut[key], this.x - 30, this.y - 40);
