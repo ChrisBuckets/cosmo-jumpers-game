@@ -43,8 +43,6 @@ function Pipe(x, y, asteroid) {
     var _color = color(255, 255, 255, 0);
     fill(_color);
     circle(this.x, this.y, 95);
-    translate(0, 0);
-    rotate(PI / 3);
 
     image(asteroid, this.x - 50, this.y - 50);
   };

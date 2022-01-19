@@ -116,7 +116,7 @@ function draw() {
   if (screen == "playing" || screen == "lost") {
     strokeWeight(0);
     background(bg);
-    bird.show();
+    bird.show(screen);
     bird.update();
 
     if (pipes.length <= 8) {

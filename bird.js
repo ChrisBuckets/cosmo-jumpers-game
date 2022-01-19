@@ -5,7 +5,7 @@ function Bird(astronaut) {
   this.lift = -25;
   this.velocity = 0;
   this.score = 0;
-  this.show = function () {
+  this.show = function (screen) {
     var _color = color(255, 255, 255, 0);
     fill(_color);
 
@@ -13,6 +13,9 @@ function Bird(astronaut) {
     circle(this.x + 40, this.y - 14, 43);
     //image(astronaut, this.x - 30, this.y - 40);
     for (key in astronaut) {
+      if (screen == "lost") {
+        rotate(PI / 2);
+      }
       image(astronaut[key], this.x - 30, this.y - 40);
     }
   };
