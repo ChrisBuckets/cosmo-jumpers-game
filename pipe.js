@@ -45,7 +45,7 @@ function Pipe(x, y, asteroid) {
     fill(_color);
     circle(this.x, this.y, 95);
 
-    rotate(PI / 4);
+    rotate(PI / 3);
     image(asteroid, this.x - 50, this.y - 50);
   };
   this.update = function (speed) {
