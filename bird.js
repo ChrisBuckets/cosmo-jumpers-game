@@ -14,7 +14,11 @@ function Bird(astronaut) {
     //image(astronaut, this.x - 30, this.y - 40);
     for (key in astronaut) {
       if (screen == "lost") {
+        push();
+        translate(this.x - 30, this.y - 40);
+
         rotate(PI / 2);
+        pop();
       }
       image(astronaut[key], this.x - 30, this.y - 40);
     }
