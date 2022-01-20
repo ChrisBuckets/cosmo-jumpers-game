@@ -229,6 +229,10 @@ function mousePressed() {
   action();
 }
 
+function touchStarted() {
+  action();
+}
+
 function action() {
   if (screen == "menu") {
     console.log("breh");
