@@ -225,9 +225,9 @@ function keyPressed() {
     action();
   }
 }
-function mousePressed() {
+/*function mousePressed() {
   action();
-}
+}*/
 
 function touchStarted() {
   action();
