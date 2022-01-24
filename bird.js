@@ -1,17 +1,17 @@
-function Bird() {
+function Bird(astronaut) {
   this.y = height / 3;
   this.x = width / 3;
   this.gravity = 0.85;
   this.lift = -25;
   this.velocity = 0;
   this.score = 0;
-  this.show = function (newAstronaut) {
+  this.show = function (screen) {
     var _color = color(255, 255, 255, 0);
     fill(_color);
     rect(this.x + 2.5, this.y - 13, 60, 85);
     circle(this.x + 40, this.y - 14, 43);
-    for (key in newAstronaut) {
-      image(newAstronaut[key], this.x - 30, this.y - 40);
+    for (key in astronaut) {
+      image(astronaut[key], this.x - 30, this.y - 40);
     }
   };
 

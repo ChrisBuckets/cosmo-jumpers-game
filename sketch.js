@@ -94,14 +94,13 @@ function preload() {
   console.log(buildAstronaut);
   console.log(Object.keys(buildAstronaut).length);
 }
-let newAstronaut = buildAstronaut;
 function setup() {
   collideDebug(true);
 
   createCanvas(600, 800);
 
   frameRate(70);
-  bird = new Bird();
+  bird = new Bird(buildAstronaut);
   textAlign(CENTER, CENTER);
   textStyle(BOLD);
   textSize(50);
@@ -132,11 +131,11 @@ function draw() {
 
     if (time + 1000 < Date.now()) {
       console.log("new bird");
-      newAstronaut = buildAstronaut2;
+
       time = Date.now();
     }
     bird.show(screen);
-    bird.update(newAstronaut);
+    bird.update();
 
     if (pipes.length <= 8) {
       spawnPipe(pipes[0].x + 550);
