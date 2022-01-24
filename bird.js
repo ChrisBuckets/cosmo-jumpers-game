@@ -1,11 +1,11 @@
-function Bird(astronaut) {
+function Bird() {
   this.y = height / 3;
   this.x = width / 3;
   this.gravity = 0.85;
   this.lift = -25;
   this.velocity = 0;
   this.score = 0;
-  this.show = function (screen) {
+  this.show = function (newAstronaut {
     var _color = color(255, 255, 255, 0);
     fill(_color);
     rect(this.x + 2.5, this.y - 13, 60, 85);
