@@ -101,7 +101,7 @@ function setup() {
   if (checkSound == null) storeItem("sound", true);
   if (checkSound != null) sound = checkSound;
 }
-let time = new Date().getTime();
+
 function draw() {
   if (screen == "menu") {
     background(menu);
