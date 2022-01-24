@@ -54,6 +54,8 @@ let astronaut = {
   gloves: ["Gloves Boxing Blue", "Gloves Boxing Red", "Gloves Experiment", "Gloves Leather", "Gloves Fingerless", "Gloves Camo"],
 };
 
+let time = Date.now();
+
 function preload() {
   bg = loadImage("https://i.ibb.co/YQKjj2z/tfghc.png");
   //astronaut = loadImage("https://i.ibb.co/FXDQ6jP/astronaut.png");
@@ -117,7 +119,20 @@ function draw() {
     strokeWeight(0);
     background(bg);
     bird.show(screen);
-    bird.update();
+    if (time + 1000 > time) {
+      buildAstronaut = {
+        suit: loadImage(`./astronauts/suit/${astronaut["suit"][Math.floor(Math.random() * astronaut["suit"].length)]}.png`),
+        trail: loadImage(`./astronauts/trail/${astronaut["trail"][Math.floor(Math.random() * astronaut["trail"].length)]}.png`),
+        shoes: loadImage(`./astronauts/shoes/${astronaut["shoes"][Math.floor(Math.random() * astronaut["shoes"].length)]}.png`),
+        jetpack: loadImage(`./astronauts/jetpack/${astronaut["jetpack"][Math.floor(Math.random() * astronaut["jetpack"].length)]}.png`),
+
+        gloves: loadImage(`./astronauts/gloves/${astronaut["gloves"][Math.floor(Math.random() * astronaut["gloves"].length)]}.png`),
+        template: loadImage(`./astronauts/template/${astronaut["template"][0]}.png`),
+        helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
+      };
+      time = Date.now();
+    }
+    bird.update(buildAstronaut);
 
     if (pipes.length <= 8) {
       spawnPipe(pipes[0].x + 550);

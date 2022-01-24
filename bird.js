@@ -1,4 +1,5 @@
 function Bird(astronaut) {
+  this.astronaut = astronaut;
   this.y = height / 3;
   this.x = width / 3;
   this.gravity = 0.85;
@@ -10,15 +11,15 @@ function Bird(astronaut) {
     fill(_color);
     rect(this.x + 2.5, this.y - 13, 60, 85);
     circle(this.x + 40, this.y - 14, 43);
-    for (key in astronaut) {
-      image(astronaut[key], this.x - 30, this.y - 40);
+    for (key in this.astronaut) {
+      image(this.astronaut[key], this.x - 30, this.y - 40);
     }
   };
 
   this.up = function () {
     this.velocity += this.lift;
   };
-  this.update = function () {
+  this.update = function (astronaut) {
     this.velocity += this.gravity;
     this.velocity *= 0.9;
     this.y += this.velocity;
@@ -29,6 +30,8 @@ function Bird(astronaut) {
     if (bird.y < -60) {
       bird.y = -60;
     }
+
+    this.astronaut = astronaut;
   };
 
   this.fall = function () {
