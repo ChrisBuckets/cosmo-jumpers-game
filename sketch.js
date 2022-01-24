@@ -9,7 +9,7 @@ let font;
 let soundImage;
 let muteSoundImage;
 let sound = true;
-let buildAstronaut;
+
 let astronaut = {
   template: ["Template"],
   helmet: [
@@ -119,19 +119,6 @@ function draw() {
     strokeWeight(0);
     background(bg);
     bird.show(screen);
-    if (time + 1000 > time) {
-      buildAstronaut = {
-        suit: loadImage(`./astronauts/suit/${astronaut["suit"][Math.floor(Math.random() * astronaut["suit"].length)]}.png`),
-        trail: loadImage(`./astronauts/trail/${astronaut["trail"][Math.floor(Math.random() * astronaut["trail"].length)]}.png`),
-        shoes: loadImage(`./astronauts/shoes/${astronaut["shoes"][Math.floor(Math.random() * astronaut["shoes"].length)]}.png`),
-        jetpack: loadImage(`./astronauts/jetpack/${astronaut["jetpack"][Math.floor(Math.random() * astronaut["jetpack"].length)]}.png`),
-
-        gloves: loadImage(`./astronauts/gloves/${astronaut["gloves"][Math.floor(Math.random() * astronaut["gloves"].length)]}.png`),
-        template: loadImage(`./astronauts/template/${astronaut["template"][0]}.png`),
-        helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
-      };
-      bird = new Bird(buildAstronaut);
-    }
     bird.update();
 
     if (pipes.length <= 8) {
