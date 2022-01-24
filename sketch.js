@@ -129,9 +129,7 @@ function draw() {
     strokeWeight(0);
     background(bg);
 
-    console.log(time);
-    console.log(Date.now());
-    if (time + 1000 > Date.now()) {
+    if (time + 1000 < Date.now()) {
       console.log("new bird");
       bird = new Bird(buildAstronaut2);
       time = Date.now();
