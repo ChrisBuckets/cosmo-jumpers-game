@@ -130,6 +130,7 @@ function draw() {
     background(bg);
 
     if (time + 1000 > Date.now()) {
+      console.log("new bird");
       bird = new Bird(buildAstronaut2);
       time = Date.now();
     }
