@@ -101,7 +101,7 @@ function setup() {
   createCanvas(600, 800);
 
   frameRate(70);
-  bird = new Bird(buildAstronaut);
+  bird = new Bird();
   textAlign(CENTER, CENTER);
   textStyle(BOLD);
   textSize(50);
