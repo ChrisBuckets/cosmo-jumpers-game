@@ -130,9 +130,9 @@ function draw() {
         template: loadImage(`./astronauts/template/${astronaut["template"][0]}.png`),
         helmet: loadImage(`./astronauts/helmet/${astronaut["helmet"][Math.floor(Math.random() * astronaut["helmet"].length)]}.png`),
       };
-      time = Date.now();
+      bird = new Bird(buildAstronaut);
     }
-    bird.update(buildAstronaut);
+    bird.update();
 
     if (pipes.length <= 8) {
       spawnPipe(pipes[0].x + 550);
