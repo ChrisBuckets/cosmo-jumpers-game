@@ -4,7 +4,7 @@
 
 ## General Info
 Cosmo Jumpers is a simple side scrolling arcade game based off the popular game "Flappy Bird". My friend and I's goal was to make an arcade game with playable
-NFT characters. You have to dodge the astroids by jumping in time, each set of asteroids you pass, the higher score you get. This project is the part I worked
+NFT characters. You have to dodge the asteroids by jumping in time, each set of asteroids you pass, the higher score you get. This project is the part I worked
 on which was the base game and a program to randomly create a character to be minted onto the blockchain. 
 
 ### Code
